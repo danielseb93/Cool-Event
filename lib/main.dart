@@ -1,4 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'ui/pages/login.dart';
+import 'ui/pages/registro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,22 +58,35 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.title),
-        titleTextStyle:
-        
-            const TextStyle(fontFamily: 'Nova-Square', fontSize: 40, ),
+        titleTextStyle: const TextStyle(
+          fontFamily: 'Nova-Square',
+          fontSize: 40,
+        ),
       ),
       body: Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                ElevatedButton(
-                    onPressed: () {}, child: const Text('Registrarse')),
-                ElevatedButton(
-                    onPressed: () {}, child: const Text('Iniciar Sesión')),
-              ],
-            ),
-          ),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            ElevatedButton(
+                child: const Text('Registrarse'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegistroForm()));
+                }),
+            ElevatedButton(
+                child: const Text('Iniciar Sesión'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Iniciosesion()));
+                }),
+          ],
+        ),
+      ),
     );
   }
 }
